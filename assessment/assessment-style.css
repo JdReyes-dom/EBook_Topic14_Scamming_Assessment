@@ -32,10 +32,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Top padding for safe distance from top */
-  padding: 20px 20px 80px; 
+  justify-content: flex-start;
+  padding: 20px 20px 0;      /* bottom = 0 */
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
 /* =========================================================
@@ -1185,23 +1184,21 @@ body {
   75% { transform: translateX(-5px); }
 }
 
-/* =========================================================
-   PROGRESS BAR — Sticky Footer
-========================================================= */
 .progress-container {
-  position: sticky;
+  position: sticky;          /* <-- sticky, NOT fixed */
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+  margin-top: auto;          /* pushes to bottom when content is short */
   z-index: 50;
   padding-top: 10px;
   padding-bottom: 10px;
   background: #0078ff;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 -2px 20px rgba(0, 60, 120, 0.3);
-  margin-top: 15px;
 }
 
 .progress-inner {
@@ -1210,16 +1207,8 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-left: 20px;    /* <-- control horizontal spacing here now */
+  padding-left: 20px;
   padding-right: 20px;
-}
-
-.progress-inner {
-  max-width: 780px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 
 .progress-label {
